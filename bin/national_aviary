@@ -2,4 +2,5 @@
 
 require_relative '../lib/CLI_Project'
 
-CLIProject::Aviary.new.call
+#CLIProject::Cli.new.call
+CLIProject::Scraper.new.getNames
