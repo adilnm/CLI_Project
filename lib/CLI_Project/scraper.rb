@@ -7,7 +7,9 @@ class CLIProject::Scraper
     doc = Nokogiri::HTML(html)
     
     doc.css("tr td.commonNameCell a").each do |name|
-      CLIProject::Aviary.new.name=name.text
+      instan=CLIProject::Aviary.new
+      instan.name=name.text
+      instan.url=link+name.attr("href")
     end
 
   end
