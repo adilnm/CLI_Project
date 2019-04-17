@@ -17,7 +17,7 @@ class CLIProject::Scraper
       instan.diet=doc1.css("div.rightCol p")[2].text
       instan.breeding=doc1.css("div.rightCol p")[3].text
       instan.status=doc1.css("div.rightCol p")[4].text
-      instan.fubFact=doc1.css("div.funFact").text
+      instan.funFact=doc1.css("div.funFact").text.gsub("FUN FACT","").strip
       instan.status=doc1.css("div.rightCol p")[4].text
       binding.pry
     end
