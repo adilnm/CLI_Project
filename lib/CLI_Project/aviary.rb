@@ -1,6 +1,6 @@
 class CLIProject::Aviary
   
-  attr_accessor :name, :url, :description, :distribution, :habitat, :diet, :breeding, :status
+  attr_accessor :name, :url, :description, :distribution, :habitat, :diet, :breeding, :status, :funFact
   @@all=[]
   def initialize 
      @@all<< self

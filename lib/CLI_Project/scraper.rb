@@ -14,7 +14,12 @@ class CLIProject::Scraper
       doc1 = Nokogiri::HTML(html1)
       instan.distribution=doc1.css("div.rightCol p").first.text
       instan.habitat=doc1.css("div.rightCol p")[1].text
-    
+      instan.diet=doc1.css("div.rightCol p")[2].text
+      instan.breeding=doc1.css("div.rightCol p")[3].text
+      instan.status=doc1.css("div.rightCol p")[4].text
+      instan.fubFact=doc1.css("div.funFact").text
+      instan.status=doc1.css("div.rightCol p")[4].text
+      binding.pry
     end
   end
   
