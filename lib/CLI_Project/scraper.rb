@@ -13,13 +13,12 @@ class CLIProject::Scraper
       html1=open(instan.url)
       doc1 = Nokogiri::HTML(html1)
       instan.distribution=doc1.css("div.rightCol p").first.text
+      instan.habitat=doc1.css("div.rightCol p")[1].text
     
     end
   end
   
-  def getData(url)
-    
-  end
+  
   
 end
 
