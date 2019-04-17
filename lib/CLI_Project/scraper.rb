@@ -18,8 +18,8 @@ class CLIProject::Scraper
       instan.breeding=doc1.css("div.rightCol p")[3].text
       instan.status=doc1.css("div.rightCol p")[4].text
       instan.funFact=doc1.css("div.funFact").text.gsub("FUN FACT","").strip
-      instan.status=doc1.css("div.rightCol p")[4].text
-      binding.pry
+      instan.description=doc1.css("div.centerContent p").text
+      # binding.pry
     end
   end
   
