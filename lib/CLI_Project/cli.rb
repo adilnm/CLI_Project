@@ -4,7 +4,13 @@ class CLIProject::Cli
   end
   
   def birdsList
-    puts "These are all the birds that we have"
+    CLIProject::Scraper.new.getNames
+    counter=1
+    CLIProject::Aviary.all.each do |item|
+      puts "#{counter}. #{item.name}"
+      counter+=1
+    end
+    
   end
   
 end

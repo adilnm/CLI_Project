@@ -2,5 +2,4 @@
 
 require_relative '../lib/CLI_Project'
 
-#CLIProject::Cli.new.call
-CLIProject::Scraper.new.getNames
+CLIProject::Cli.new.call
