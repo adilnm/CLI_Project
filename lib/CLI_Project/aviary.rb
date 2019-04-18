@@ -27,5 +27,27 @@ class CLIProject::Aviary
      @distribution=doc.css("div.rightCol p").first.text
   end
   
+  def getDescription
+     @description=doc.css("div.centerContent p").text
+  end
+  
+  def getDistribution
+     @distribution=doc.css("div.rightCol p").first.text
+  end
+  
+  def getDistribution
+     @distribution=doc.css("div.rightCol p").first.text
+  end
+  
+  def getDistribution
+     @distribution=doc.css("div.rightCol p").first.text
+  end
+  
+  def getDistribution
+     @distribution=doc.css("div.rightCol p").first.text
+  end
+
+ 
+  
 end
   
