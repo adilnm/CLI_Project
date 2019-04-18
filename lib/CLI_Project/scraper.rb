@@ -11,6 +11,10 @@ class CLIProject::Scraper
       instan=CLIProject::Aviary.new
       instan.name=item.text
       instan.url=link+item.attr("href")
+      
+      
+      
+      
       # html1=open(instan.url)
       # doc1 = Nokogiri::HTML(html1)
       # instan.distribution=doc1.css("div.rightCol p").first.text
@@ -24,12 +28,7 @@ class CLIProject::Scraper
     end
   end
    
-  # def getDistribution(url)
-  #   instan=CLIProject::Aviary.new
-  #   html1=open(url)
-  #     doc1 = Nokogiri::HTML(html1)
-  #     instan.distribution=doc1.css("div.rightCol p").first.text
-  # end
+
   
   
 end
