@@ -15,17 +15,22 @@ class CLIProject::Cli
   end
   
   def displayDescription
-    puts "Please enter the number of the bird that you would like to know more information about"
-    
-    input=gets.strip.to_i
-    description=CLIProject::Aviary.all[input-1].getDescription
-    if description=""
-      puts "Sorry, we do not have a description for this perticular bird "
-    else
-    puts "#{description}"
+      puts "Please enter the number of the bird that you would like to know more information about"
+      
+      input=Integer(gets) rescue false
+      if !input || input.to_i< 1 || input.to_i>127
+        puts "your input is not valid"
+        displayDescription
+      else
+      input=input.to_i
+      end
+      
+      description=CLIProject::Aviary.all[input-1].getDescription
+          if description==""
+            puts "Sorry, we do not have a description for this perticular bird "
+          else
+            puts "#{description}"
+          end
   end
-  end
-  
-  
   
 end
