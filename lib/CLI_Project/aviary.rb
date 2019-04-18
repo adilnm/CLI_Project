@@ -31,20 +31,24 @@ class CLIProject::Aviary
      @description=doc.css("div.centerContent p").text
   end
   
-  def getDistribution
-     @distribution=doc.css("div.rightCol p").first.text
+  def getHabitat
+     @habitat=doc.css("div.rightCol p")[1].text
   end
   
-  def getDistribution
-     @distribution=doc.css("div.rightCol p").first.text
+  def getDiet
+     @diet=doc.css("div.rightCol p")[2].text
   end
   
-  def getDistribution
-     @distribution=doc.css("div.rightCol p").first.text
+  def getBreeding
+     @breeding=doc.css("div.rightCol p")[3].text
   end
   
-  def getDistribution
-     @distribution=doc.css("div.rightCol p").first.text
+  def getStatus
+     @status=doc.css("div.rightCol p")[4].text
+  end
+  
+  def getFunFact
+     @funFact=doc.css("div.funFact").text.gsub("FUN FACT","").strip
   end
 
  
