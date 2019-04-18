@@ -31,6 +31,20 @@ class CLIProject::Cli
           else
             puts "#{description}"
           end
-  end
+          
+          puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
+          input=gets.strip.downcase
+          if input=="y"
+            options
+          elsif input=="n"
+          displayDescription
+          else 
+            puts "Please enter y or n"
+          end
+      end
+  
+      def options
+        puts ""
+      end
   
 end
