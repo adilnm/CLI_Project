@@ -16,19 +16,24 @@ class CLIProject::Cli
   
   def displayDescription
     input=nil
-      while input!="exit"
-      puts "Please enter the number of the bird that you would like to know more information about or enter 'exit' to exit the "
-      
-      input=Integer(gets) rescue false
-      if !input || input.to_i< 1 || input.to_i>127
+    until input=="exit"
+      puts "Please enter the number of the bird that you would like to know more information about or enter 'exit' to exit the program"
+      input=gets.strip
+      i=Integer(input) rescue false
+      if input=="exit"
+        puts"Goodbye"
+      elsif !i || input.to_i< 1 || input.to_i>127
         puts "your input is not valid"
-        input=gets.strip
-        displayDescription
+        
       else
-      input=input.to_i
+        description(input)
       end
+    end
+  end
       
-      description=CLIProject::Aviary.all[input-1].getDescription
+      def description(input)
+        input=input.to_i
+        description=CLIProject::Aviary.all[input-1].getDescription
           if description==""
             puts "Sorry, we do not have a description for this perticular bird "
           else
@@ -36,17 +41,18 @@ class CLIProject::Cli
           end
           
           puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
-          input=gets.strip.downcase
-          if input=="y"
-            options(input)
-          elsif input=="n"
-          displayDescription
+          input1=nil
+          until input1=="exit" || input1=="y" || input1=="n"
+          input1=gets.strip.downcase
+          if input1=="y"
+            options(input1)
+          elsif input1=="n"
           else 
             puts "Please enter y or n"
           end
         end
       end
-  
+      
       def options(bird)
         puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding,\n 5.status \n 6.funFact"
         input1=gets.strip
