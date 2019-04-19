@@ -59,7 +59,7 @@ class CLIProject::Cli
       end
       
       def options(input)
-        puts "Please pick one of the options below: "
+        puts "Please pick one of the options below or type 'exit' to finish: "
         puts " 1.Distribution \n 2.Habitat \n 3.Diet \n 4.Breeding\n 5.Status \n 6.FunFact"
         input1=gets.strip
         case input1
@@ -75,6 +75,9 @@ class CLIProject::Cli
           puts "#{CLIProject::Aviary.all[input.to_i-1].getStatus}\n\n"
           when "6"
           puts "#{CLIProject::Aviary.all[input.to_i-1].getFunFact}\n\n"
+          when "exit"
+            exit
+          else options(input)
         end
           puts "Would you like to know more about #{CLIProject::Aviary.all[input.to_i-1].name} y/n ?"
         
