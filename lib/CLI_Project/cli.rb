@@ -15,11 +15,14 @@ class CLIProject::Cli
   end
   
   def displayDescription
-      puts "Please enter the number of the bird that you would like to know more information about"
+    input=nil
+      while input!="exit"
+      puts "Please enter the number of the bird that you would like to know more information about or enter 'exit' to exit the "
       
       input=Integer(gets) rescue false
       if !input || input.to_i< 1 || input.to_i>127
         puts "your input is not valid"
+        input=gets.strip
         displayDescription
       else
       input=input.to_i
@@ -41,6 +44,7 @@ class CLIProject::Cli
           else 
             puts "Please enter y or n"
           end
+        end
       end
   
       def options(bird)

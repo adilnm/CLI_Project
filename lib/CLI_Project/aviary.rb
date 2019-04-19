@@ -5,14 +5,7 @@ class CLIProject::Aviary
   def initialize (name=nil, url=nil,description=nil,distribution=nil,habitat=nil,diet=nil,breeding=nil,status=nil,funFact=nil)
     @name=name
     @url=url
-    # @description=description
-    # @distribution=distribution
-    # @habitat=habitat
-    # @diet=diet
-    # @breeding=breeding
-    # @status=status
-    # @funFact=funFact
-     @@all<< self
+    @@all<< self
   end
   
   def self.all
