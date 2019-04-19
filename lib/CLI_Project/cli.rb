@@ -1,6 +1,6 @@
 class CLIProject::Cli
   def call
-    puts"Thank you for visiting the biggest Aviary in the United States. Here is a list of all the birds that we have: s"
+    puts"Thank you for visiting the biggest Aviary in the United States. Here is a list of all the birds that we have: \n\n"
    birdsList
    displayDescription
   end
@@ -43,8 +43,9 @@ class CLIProject::Cli
           end
       end
   
-      def options
-        puts ""
+      def options(bird)
+        print " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding,\n 5.status \n 6.funFact"
+        input=gets.strip
+        
       end
-  
 end
