@@ -15,8 +15,8 @@ class CLIProject::Cli
   end
   
   def displayDescription
-    input=nil
-    until input=="exit"
+    # input=nil
+    # until input=="exit"
       puts "Please enter the number of the bird that you would like to know more information about or enter 'exit' to exit the program"
       input=gets.strip
       i=Integer(input) rescue false
@@ -24,22 +24,24 @@ class CLIProject::Cli
         puts"Goodbye"
       elsif !i || input.to_i< 1 || input.to_i>127
         puts "your input is not valid"
-        
+        displayDescription
       else
-        description(input)
+        description(input.to_i)
+        moreInfo(input.to_i)
       end
-    end
+    # end
   end
       
       def description(input)
-        input=input.to_i
         description=CLIProject::Aviary.all[input-1].getDescription
           if description==""
-            puts "Sorry, we do not have a description for this perticular bird "
+            puts "Sorry, we do not have a description for this particular bird "
           else
-            puts "#{description}"
+            puts "#{description}\n\n"
           end
-          
+     end
+      
+      def moreInfo(input)
           puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
           input1=nil
           until input1=="y" || input1=="n"
@@ -47,6 +49,7 @@ class CLIProject::Cli
           if input1=="y"
             options(input)
           elsif input1=="n"
+          displayDescription
           else 
             puts "Please enter y or n"
           end
@@ -54,21 +57,22 @@ class CLIProject::Cli
       end
       
       def options(bird)
-        puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding,\n 5.status \n 6.funFact"
+        puts "Please pick one of the options below: "
+        puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding\n 5.status \n 6.funFact"
         input1=gets.strip
         case input1
           when "1"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDistribution}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDistribution}\n\n"
           when "2"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getHabitat}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getHabitat}\n\n"
           when "3"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDiet}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDiet}\n\n"
           when "4"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getBreeding}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getBreeding}\n\n"
           when "5"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getStatus}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getStatus}\n\n"
           when "6"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getFunFact}"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getFunFact}\n\n"
         end
           puts "Would you like to know more about #{CLIProject::Aviary.all[bird.to_i-1].name} y/n ?"
            input=gets.strip.downcase
