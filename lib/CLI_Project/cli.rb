@@ -56,25 +56,25 @@ class CLIProject::Cli
         end
       end
       
-      def options(bird)
+      def options(input)
         puts "Please pick one of the options below: "
         puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding\n 5.status \n 6.funFact"
         input1=gets.strip
         case input1
           when "1"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDistribution}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getDistribution}\n\n"
           when "2"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getHabitat}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getHabitat}\n\n"
           when "3"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDiet}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getDiet}\n\n"
           when "4"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getBreeding}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getBreeding}\n\n"
           when "5"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getStatus}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getStatus}\n\n"
           when "6"
-          puts "#{CLIProject::Aviary.all[bird.to_i-1].getFunFact}\n\n"
+          puts "#{CLIProject::Aviary.all[input.to_i-1].getFunFact}\n\n"
         end
-          puts "Would you like to know more about #{CLIProject::Aviary.all[bird.to_i-1].name} y/n ?"
+          puts "Would you like to know more about #{CLIProject::Aviary.all[input.to_i-1].name} y/n ?"
            input=gets.strip.downcase
             input=="y" ? options(bird): displayDescription
       end
