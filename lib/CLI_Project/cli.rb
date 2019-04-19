@@ -50,7 +50,9 @@ class CLIProject::Cli
             options(input)
           elsif input1=="n"
           displayDescription
-          else 
+          elsif input1=="exit"
+           exit
+          else
             puts "Please enter y or n"
           end
         end
@@ -58,7 +60,7 @@ class CLIProject::Cli
       
       def options(input)
         puts "Please pick one of the options below: "
-        puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding\n 5.status \n 6.funFact"
+        puts " 1.Distribution \n 2.Habitat \n 3.Diet \n 4.Breeding\n 5.Status \n 6.FunFact"
         input1=gets.strip
         case input1
           when "1"
@@ -76,6 +78,6 @@ class CLIProject::Cli
         end
           puts "Would you like to know more about #{CLIProject::Aviary.all[input.to_i-1].name} y/n ?"
            input=gets.strip.downcase
-            input=="y" ? options(bird): displayDescription
+            input=="y" ? options(input): displayDescription
       end
 end
