@@ -77,7 +77,21 @@ class CLIProject::Cli
           puts "#{CLIProject::Aviary.all[input.to_i-1].getFunFact}\n\n"
         end
           puts "Would you like to know more about #{CLIProject::Aviary.all[input.to_i-1].name} y/n ?"
-           input=gets.strip.downcase
-            input=="y" ? options(input): displayDescription
+        
+          other_options(input)
+      end
+      
+      def other_options(input)
+        input2=gets.strip.downcase
+        if input2=="y"
+          options(input)
+        elsif input2=="n" 
+        displayDescription
+        elsif input2=="exit"
+        exit
+        else
+          puts"Please enter a valid input"
+          other_options(input)
+        end
       end
 end
