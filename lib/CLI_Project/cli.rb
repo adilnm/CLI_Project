@@ -42,10 +42,10 @@ class CLIProject::Cli
           
           puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
           input1=nil
-          until input1=="exit" || input1=="y" || input1=="n"
+          until input1=="y" || input1=="n"
           input1=gets.strip.downcase
           if input1=="y"
-            options(input1)
+            options(input)
           elsif input1=="n"
           else 
             puts "Please enter y or n"
@@ -69,9 +69,9 @@ class CLIProject::Cli
           puts "#{CLIProject::Aviary.all[bird.to_i-1].getStatus}"
           when "6"
           puts "#{CLIProject::Aviary.all[bird.to_i-1].getFunFact}"
-          
         end
-          
-        
+          puts "Would you like to know more about #{CLIProject::Aviary.all[bird.to_i-1].name} y/n ?"
+           input=gets.strip.downcase
+            input=="y" ? options(bird): displayDescription
       end
 end
