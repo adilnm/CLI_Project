@@ -35,7 +35,7 @@ class CLIProject::Cli
           puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
           input=gets.strip.downcase
           if input=="y"
-            options
+            options(input)
           elsif input=="n"
           displayDescription
           else 
@@ -44,8 +44,24 @@ class CLIProject::Cli
       end
   
       def options(bird)
-        print " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding,\n 5.status \n 6.funFact"
-        input=gets.strip
+        puts " 1.distribution \n 2.habitat \n 3.diet \n 4.breeding,\n 5.status \n 6.funFact"
+        input1=gets.strip
+        case input1
+          when "1"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDistribution}"
+          when "2"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getHabitat}"
+          when "3"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getDiet}"
+          when "4"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getBreeding}"
+          when "5"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getStatus}"
+          when "6"
+          puts "#{CLIProject::Aviary.all[bird.to_i-1].getFunFact}"
+          
+        end
+          
         
       end
 end
