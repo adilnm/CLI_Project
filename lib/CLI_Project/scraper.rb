@@ -1,4 +1,3 @@
-require 'open-uri'
 class CLIProject::Scraper
   
   def getNames

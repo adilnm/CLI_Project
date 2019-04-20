@@ -1,6 +1,8 @@
-#require "CLI_Project/version"
-require 'bundler'
-Bundler.require
+# require 'bundler'
+# Bundler.require
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 require_relative "./CLI_Project/version"
 require_relative "./CLI_Project/scraper"
 require_relative "./CLI_Project/aviary"

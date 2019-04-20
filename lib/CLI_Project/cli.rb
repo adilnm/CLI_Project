@@ -15,9 +15,8 @@ class CLIProject::Cli
   end
   
   def displayDescription
-    # input=nil
-    # until input=="exit"
-      puts "Please enter the number of the bird that you would like to know more information about or enter 'exit' to exit the program"
+    
+      puts "\nPlease enter the number of the bird that you would like to know more information about or enter 'exit' to exit the program."
       input=gets.strip
       i=Integer(input) rescue false
       if input=="exit"
@@ -26,6 +25,10 @@ class CLIProject::Cli
         puts "your input is not valid"
         displayDescription
       else
+        puts"\n\n"
+        puts"  -------------"
+        puts"   DESCRIPTION"
+        puts"  -------------"
         description(input.to_i)
         moreInfo(input.to_i)
       end
@@ -51,6 +54,7 @@ class CLIProject::Cli
           elsif input1=="n"
           displayDescription
           elsif input1=="exit"
+          puts"Goodbye"
            exit
           else
             puts "Please enter y or n"
@@ -59,23 +63,42 @@ class CLIProject::Cli
       end
       
       def options(input)
-        puts "Please pick one of the options below or type 'exit' to finish: "
+        puts "\nPlease pick one of the options below or type 'exit' to finish:\n "
         puts " 1.Distribution \n 2.Habitat \n 3.Diet \n 4.Breeding\n 5.Status \n 6.FunFact"
         input1=gets.strip
         case input1
           when "1"
+          puts"  -------------"
+          puts"   DISTRIBUTION"
+          puts"  -------------"
           puts "#{CLIProject::Aviary.all[input.to_i-1].getDistribution}\n\n"
           when "2"
+          puts"  -------------"
+          puts"   HABITAT"
+          puts"  -------------"  
           puts "#{CLIProject::Aviary.all[input.to_i-1].getHabitat}\n\n"
           when "3"
+          puts"  -------------"
+          puts"   DIET"
+          puts"  -------------"  
           puts "#{CLIProject::Aviary.all[input.to_i-1].getDiet}\n\n"
           when "4"
+          puts"  -------------"
+          puts"   BREEDING"
+          puts"  -------------"  
           puts "#{CLIProject::Aviary.all[input.to_i-1].getBreeding}\n\n"
           when "5"
+          puts"  -------------"
+          puts"   STATUS"
+          puts"  -------------"  
           puts "#{CLIProject::Aviary.all[input.to_i-1].getStatus}\n\n"
           when "6"
+          puts"  -------------"
+          puts"   FUNFACT"
+          puts"  -------------"  
           puts "#{CLIProject::Aviary.all[input.to_i-1].getFunFact}\n\n"
           when "exit"
+            puts"Goodbye"
             exit
           else options(input)
         end
@@ -91,6 +114,7 @@ class CLIProject::Cli
         elsif input2=="n" 
         displayDescription
         elsif input2=="exit"
+        puts"Goodbye"
         exit
         else
           puts"Please enter a valid input"
