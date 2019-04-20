@@ -1,4 +1,4 @@
-class CLIProject::Cli
+class NationalAviary::Cli
   def call
     puts"Thank you for visiting the biggest Aviary in the United States. Here is a list of all the birds that we have: \n\n"
    birdsList
@@ -6,9 +6,9 @@ class CLIProject::Cli
   end
   
   def birdsList
-    CLIProject::Scraper.new.getNames
+    NationalAviary::Scraper.new.getNames
     counter=1
-    CLIProject::Aviary.all.each do |item|
+    NationalAviary::Aviary.all.each do |item|
       puts "#{counter}. #{item.name}"
       counter+=1
     end
@@ -36,7 +36,7 @@ class CLIProject::Cli
   end
       
       def description(input)
-        description=CLIProject::Aviary.all[input-1].getDescription
+        description=NationalAviary::Aviary.all[input-1].getDescription
           if description==""
             puts "Sorry, we do not have a description for this particular bird "
           else
@@ -45,7 +45,7 @@ class CLIProject::Cli
      end
       
       def moreInfo(input)
-          puts "Would you like to know more about #{CLIProject::Aviary.all[input-1].name} y/n ?"
+          puts "Would you like to know more about #{NationalAviary::Aviary.all[input-1].name} y/n ?"
           input1=nil
           until input1=="y" || input1=="n"
           input1=gets.strip.downcase
@@ -64,45 +64,45 @@ class CLIProject::Cli
       
       def options(input)
         puts "\nPlease pick one of the options below or type 'exit' to finish:\n "
-        puts " 1.Distribution \n 2.Habitat \n 3.Diet \n 4.Breeding\n 5.Status \n 6.FunFact"
+        puts " 1.Distribution \n 2.Habitat \n 3.Diet \n 4.Breeding\n 5.Status \n 6.FunFact\n\n"
         input1=gets.strip
         case input1
           when "1"
           puts"  -------------"
           puts"   DISTRIBUTION"
           puts"  -------------"
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getDistribution}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getDistribution}\n\n"
           when "2"
           puts"  -------------"
           puts"   HABITAT"
           puts"  -------------"  
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getHabitat}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getHabitat}\n\n"
           when "3"
           puts"  -------------"
           puts"   DIET"
           puts"  -------------"  
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getDiet}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getDiet}\n\n"
           when "4"
           puts"  -------------"
           puts"   BREEDING"
           puts"  -------------"  
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getBreeding}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getBreeding}\n\n"
           when "5"
           puts"  -------------"
           puts"   STATUS"
           puts"  -------------"  
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getStatus}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getStatus}\n\n"
           when "6"
           puts"  -------------"
           puts"   FUNFACT"
           puts"  -------------"  
-          puts "#{CLIProject::Aviary.all[input.to_i-1].getFunFact}\n\n"
+          puts "#{NationalAviary::Aviary.all[input.to_i-1].getFunFact}\n\n"
           when "exit"
             puts"Goodbye"
             exit
           else options(input)
         end
-          puts "Would you like to know more about #{CLIProject::Aviary.all[input.to_i-1].name} y/n ?"
+          puts "Would you like to know more about #{NationalAviary::Aviary.all[input.to_i-1].name} y/n ?"
         
           other_options(input)
       end

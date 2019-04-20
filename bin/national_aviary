@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/CLI_Project'
+require_relative '../lib/national_aviary'
 
-CLIProject::Cli.new.call
+NationalAviary::Cli.new.call

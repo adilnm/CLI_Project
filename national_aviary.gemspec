@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "CLI_Project/version"
+require "national_aviary/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "CLI_Project"
-  spec.version       = CLIProject::VERSION
+  spec.name          = "national_aviary"
+  spec.version       = NationalAviary::VERSION
   spec.authors       = ["'ADIL NAIMI'"]
   spec.email         = ["'adilnm23@hotmail.com'"]
 

@@ -1,4 +1,4 @@
-class CLIProject::Aviary
+class NationalAviary::Aviary
   
   attr_accessor :name, :url, :description, :distribution, :habitat, :diet, :breeding, :status, :funFact
   @@all=[]

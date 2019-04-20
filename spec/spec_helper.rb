@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "CLI_Project"
+require "national_aviary"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,6 +1,6 @@
-RSpec.describe CLIProject do
+RSpec.describe NationalAviary do
   it "has a version number" do
-    expect(CLIProject::VERSION).not_to be nil
+    expect(NationalAviary::VERSION).not_to be nil
   end
 
   it "does something useful" do
