@@ -17,11 +17,11 @@ class NationalAviary::Cli
   def displayDescription
     
       puts "\nPlease enter the number of the bird that you would like to know more information about or enter 'exit' to exit the program."
-      input=gets.strip
-      i=Integer(input) rescue false
-      if input=="exit"
+      input = gets.strip
+      i = Integer(input) rescue false
+      if input == "exit"
         puts"Goodbye"
-        elsif input=="list"
+        elsif input == "list"
         birdsList
         displayDescription
       elsif !i || input.to_i< 1 || input.to_i>127
@@ -38,8 +38,8 @@ class NationalAviary::Cli
   end
       
       def description(input)
-        description=NationalAviary::Aviary.all[input-1].getDescription
-          if description==""
+        description = NationalAviary::Aviary.all[input-1].getDescription
+          if description == ""
             puts "Sorry, we do not have a description for this particular bird "
           else
             puts "#{description}\n\n"
@@ -49,22 +49,22 @@ class NationalAviary::Cli
       def moreInfo(input)
           puts "Would you like to know more about #{NationalAviary::Aviary.all[input-1].name} y/n ?"
           input1=nil
-          until input1=="y" || input1=="n" ||input1=="list" 
-          input1=gets.strip.downcase
-          if input1=="y"
-            options(input)
-          elsif input1=="n"
-          displayDescription
-          elsif input1=="list"
-           birdsList
-           displayDescription
-          elsif input1=="exit"
-          puts"Goodbye"
-           exit
-          else
-            puts "Please enter y or n or enter 'list' to go back to the original list"
+          until input1== "y" || input1 == "n" ||input1 == "list" 
+              input1=gets.strip.downcase
+              if input1 == "y"
+                options(input)
+              elsif input1 == "n"
+              displayDescription
+              elsif input1 == "list"
+               birdsList
+               displayDescription
+              elsif input1 == "exit"
+              puts"Goodbye"
+               exit
+              else
+                puts "Please enter y or n or enter 'list' to go back to the original list"
+              end
           end
-        end
       end
       
       def options(input)
@@ -113,12 +113,12 @@ class NationalAviary::Cli
       end
       
       def other_options(input)
-        input2=gets.strip.downcase
-        if input2=="y"
+        input2 = gets.strip.downcase
+        if input2 == "y"
           options(input)
-        elsif input2=="n" 
+        elsif input2 == "n" 
         displayDescription
-        elsif input2=="exit"
+        elsif input2 == "exit"
         puts"Goodbye"
         exit
         else
