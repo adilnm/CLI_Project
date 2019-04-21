@@ -7,6 +7,9 @@ class NationalAviary::Cli
   
   def birdsList
     NationalAviary::Scraper.new.getNames
+    list
+  end
+  def list
     counter=1
     NationalAviary::Aviary.all.each do |item|
       puts "#{counter}. #{item.name}"
@@ -21,8 +24,9 @@ class NationalAviary::Cli
       i = Integer(input) rescue false
       if input == "exit"
         puts"Goodbye"
+        exit
         elsif input == "list"
-        birdsList
+        list
         displayDescription
       elsif !i || input.to_i< 1 || input.to_i>127
         puts "your input is not valid"
@@ -49,14 +53,14 @@ class NationalAviary::Cli
       def moreInfo(input)
           puts "Would you like to know more about #{NationalAviary::Aviary.all[input-1].name} y/n ?"
           input1=nil
-          until input1== "y" || input1 == "n" ||input1 == "list" 
+          until input1== "y" || input1 == "n" || input1 == "list" 
               input1=gets.strip.downcase
               if input1 == "y"
                 options(input)
               elsif input1 == "n"
               displayDescription
               elsif input1 == "list"
-               birdsList
+               list
                displayDescription
               elsif input1 == "exit"
               puts"Goodbye"
