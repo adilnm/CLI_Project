@@ -21,6 +21,9 @@ class NationalAviary::Cli
       i=Integer(input) rescue false
       if input=="exit"
         puts"Goodbye"
+        elsif input=="list"
+        birdsList
+        displayDescription
       elsif !i || input.to_i< 1 || input.to_i>127
         puts "your input is not valid"
         displayDescription
@@ -32,7 +35,6 @@ class NationalAviary::Cli
         description(input.to_i)
         moreInfo(input.to_i)
       end
-    # end
   end
       
       def description(input)
@@ -47,17 +49,20 @@ class NationalAviary::Cli
       def moreInfo(input)
           puts "Would you like to know more about #{NationalAviary::Aviary.all[input-1].name} y/n ?"
           input1=nil
-          until input1=="y" || input1=="n"
+          until input1=="y" || input1=="n" ||input1=="list" 
           input1=gets.strip.downcase
           if input1=="y"
             options(input)
           elsif input1=="n"
           displayDescription
+          elsif input1=="list"
+           birdsList
+           displayDescription
           elsif input1=="exit"
           puts"Goodbye"
            exit
           else
-            puts "Please enter y or n"
+            puts "Please enter y or n or enter 'list' to go back to the original list"
           end
         end
       end
